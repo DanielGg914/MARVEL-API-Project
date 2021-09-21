@@ -1,0 +1,29 @@
+@use '../themes/defaultTheme' as *;
+@use '../util/variables' as *;
+@use '../util/mixins' as *;
+
+html {
+    background-color: $white;
+}
+
+.main {
+    background-color: $white;
+  .background {
+    background-color: $white;
+    .marvel {
+      background-color: $red-dark;
+      width: 10.5%;
+      @include center-auto;
+      margin-top: 3rem;
+    }
+    .blank {
+        background-color: black;
+        width: 10%;
+        padding: 5%;
+        @include center-auto;
+        text-shadow: none;
+        position: relative
+    }
+
+  }
+}
