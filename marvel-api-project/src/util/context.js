@@ -4,24 +4,23 @@ const API_ENDPOINT = `https://gateway.marvel.com:443/v1/public/characters?`;
 
 const initialState = {
   loading: true,
-  limit: 0,
   total: 0,
   count: 0,
   results: [],
-  query: "hawkeye",
+  query: "",
 };
 
 const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // All the other stuff
 
   const fetchWidget = async (url) => {
-    dispatch("SET_LOADING");
+    dispatch({type: "SET_LOADING"});
     try {
       const response = await fetch(url);
-      const data = await response.json();
+      // console.log(response.json());
+      const data = await response.json(); //Error here
       dispatch({ type: "SET_RESULTS", payload: data });
     } catch (error) {
       console.error(error);
@@ -32,10 +31,9 @@ export const AppProvider = ({ children }) => {
     dispatch({type: "HANDLE_SEARCH", payload: query})
   }
 
-  // All the other stuff
   useEffect(() => {
     fetchWidget(
-      `${API_ENDPOINT}name=${state.query}&apikey=ab0606db0d69c84420a488364f11fee1`
+      `${API_ENDPOINT}&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
     );
   }, [state.query]);
 

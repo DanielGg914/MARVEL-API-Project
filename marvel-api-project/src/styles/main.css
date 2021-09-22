@@ -272,4 +272,40 @@ html {
   margin-right: auto;
   text-shadow: none;
   position: relative;
+  -webkit-animation: swinging 3s;
+          animation: swinging 3s;
+}
+@-webkit-keyframes swinging {
+  0% {
+    right: 200px;
+  }
+  20% {
+    right: 150px;
+  }
+  40% {
+    right: 0;
+  }
+  60% {
+    right: 150px;
+  }
+  100% {
+    right: 200px;
+  }
+}
+@keyframes swinging {
+  0% {
+    right: 200px;
+  }
+  20% {
+    right: 150px;
+  }
+  40% {
+    right: 0;
+  }
+  60% {
+    right: 150px;
+  }
+  100% {
+    right: 200px;
+  }
 }/*# sourceMappingURL=main.css.map */

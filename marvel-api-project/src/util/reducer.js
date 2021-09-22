@@ -6,15 +6,14 @@ export const reducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        results: action.payload.results,
+        results: action.payload.data.results,
       };
     case "HANDLE_SEARCH":
       return {
         ...state,
-        page: 0,
         query: action.payload,
       };
     default:
-      throw new Error(`No Matches ${action.type} Found`);
+      throw new Error(`No Results ${action.type} `);
   }
 };

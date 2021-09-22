@@ -1,13 +1,13 @@
-@use '../themes/defaultTheme' as *;
-@use '../util/variables' as *;
-@use '../util/mixins' as *;
+@use "../themes/defaultTheme" as *;
+@use "../util/variables" as *;
+@use "../util/mixins" as *;
 
 html {
-    background-color: $white;
+  background-color: $white;
 }
 
 .main {
-    background-color: $white;
+  background-color: $white;
   .background {
     background-color: $white;
     .marvel {
@@ -17,13 +17,31 @@ html {
       margin-top: 3rem;
     }
     .blank {
-        background-color: black;
-        width: 10%;
-        padding: 5%;
-        @include center-auto;
-        text-shadow: none;
-        position: relative
-    }
+      background-color: black;
+      width: 10%;
+      padding: 5%;
+      @include center-auto;
+      text-shadow: none;
+      position: relative;
 
+      animation: swinging 3s;
+    }
+    @keyframes swinging {
+      0% {
+        right: 200px;
+      }
+      20% {
+        right: 150px;
+      }
+      40% {
+        right: 0;
+      }
+      60% {
+        right: 150px;
+      }
+      100% {
+        right: 200px;
+      }
+    }
   }
 }

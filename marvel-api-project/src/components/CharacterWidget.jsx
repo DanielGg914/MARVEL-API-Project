@@ -2,10 +2,15 @@ import React from "react";
 import { useAppContext } from "../util/context";
 
 const CharacterWidget = () => {
-  const { results } = useAppContext();
+  const { results, loading } = useAppContext();
+  console.log(results);
+
+  if(loading){
+    <div className="loading"></div>
+  }
 
   return (
-    <div className="main">
+    <section className="main">
       {results.map((result) => {
         const { id, name, description, thumbnail, modified } = result;
         return (
@@ -19,7 +24,7 @@ const CharacterWidget = () => {
           </div>
         );
       })}
-    </div>
+    </section>
   );
 };
 
