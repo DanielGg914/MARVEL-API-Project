@@ -15,32 +15,36 @@ html {
       width: 10.5%;
       @include center-auto;
       margin-top: 3rem;
+      box-shadow: $light-shadow;
+      // font-weight: 500;
     }
     .blank {
-      background-color: black;
-      width: 10%;
-      padding: 5%;
+      background-color: white;
+      width: 28%;
+      padding: 18%;
       @include center-auto;
       text-shadow: none;
       position: relative;
+      bottom: 75px;
 
-      animation: swinging 3s;
+      animation: swinging 2s infinite ease-in-out ;
     }
     @keyframes swinging {
       0% {
-        right: 200px;
+        right: 400px;
       }
       20% {
         right: 150px;
+        transform: rotate(90deg);
       }
       40% {
-        right: 0;
+        right: 10px;
       }
       60% {
         right: 150px;
       }
       100% {
-        right: 200px;
+        right: 400px;
       }
     }
   }

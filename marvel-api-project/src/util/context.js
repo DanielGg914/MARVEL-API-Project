@@ -7,7 +7,7 @@ const initialState = {
   total: 0,
   count: 0,
   results: [],
-  query: "",
+  query: "hawkeye",
 };
 
 const AppContext = React.createContext();
