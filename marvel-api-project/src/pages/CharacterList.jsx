@@ -1,10 +1,11 @@
 import React from "react";
 import CharacterWidget from "../components/CharacterWidget";
+import SearchBar from "../components/SearchBar";
 
 const CharacterList = () => {
   return (
     <div>
-      Character List
+      <SearchBar />
       <CharacterWidget />
     </div>
   );

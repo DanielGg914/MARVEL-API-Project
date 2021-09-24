@@ -7,7 +7,7 @@ const initialState = {
   total: 0,
   count: 0,
   results: [],
-  query: "hawkeye",
+  query: "",
 };
 
 const AppContext = React.createContext();
@@ -20,7 +20,7 @@ export const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url);
       // console.log(response.json());
-      const data = await response.json(); //Error here
+      const data = await response.json();
       dispatch({ type: "SET_RESULTS", payload: data });
     } catch (error) {
       console.error(error);
@@ -33,7 +33,7 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchWidget(
-      `${API_ENDPOINT}&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
+      `${API_ENDPOINT}${state.query && `name=${state.query}`}&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
     );
   }, [state.query]);
 

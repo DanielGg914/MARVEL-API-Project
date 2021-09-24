@@ -5,6 +5,7 @@ import Loading from "./pages/Loading";
 function App() {
   return (
     <div className="App">
+      
       <CharacterList />
       {/* <Loading /> */}
     </div>
