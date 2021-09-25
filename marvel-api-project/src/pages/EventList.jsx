@@ -12,4 +12,4 @@ const EventList = () => {
     )
 }
 
-export default EventList
+export default EventList;

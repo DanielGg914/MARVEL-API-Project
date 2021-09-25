@@ -4,7 +4,6 @@ import { useAppContext } from "../util/context";
 
 const CharacterWidget = () => {
   const { results, loading } = useAppContext();
-  // console.log(results);
 
   if (loading) {
     <div className="loading"><Loading /></div>;
@@ -14,7 +13,6 @@ const CharacterWidget = () => {
     <section className="main">
       {results.map((result) => {
         const { id, name, description, thumbnail, modified, comics} = result;
-        console.log(thumbnail.path);
         return (
           <div className="card-main" key={id}>
             <div className="card">
@@ -24,8 +22,8 @@ const CharacterWidget = () => {
               <div className="back">
                 <h4>{name}</h4>
                 <p>{description}</p>
-                <p>{modified}</p>
-                <p>{comics.available}</p>
+                <p> Lase modified: {modified}</p>
+                <p>Comics Available: {comics.available}</p>
               </div>
             </div>
           </div>
@@ -33,10 +31,6 @@ const CharacterWidget = () => {
       })}
     </section>
   );
-
-
-
-
 };
 
 export default CharacterWidget;

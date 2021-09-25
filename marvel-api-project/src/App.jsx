@@ -1,3 +1,4 @@
+import ComicsWidget from "./components/ComicsWidget";
 import CharacterList from "./pages/CharacterList";
 import Loading from "./pages/Loading";
 
@@ -8,6 +9,7 @@ function App() {
       
       <CharacterList />
       {/* <Loading /> */}
+      {/* <ComicsWidget /> */}
     </div>
       
   );

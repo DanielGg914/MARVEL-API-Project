@@ -8,6 +8,7 @@ const initialState = {
   count: 0,
   results: [],
   query: "",
+  items: [],
 };
 
 const AppContext = React.createContext();
@@ -16,7 +17,7 @@ export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchWidget = async (url) => {
-    dispatch({type: "SET_LOADING"});
+    dispatch({ type: "SET_LOADING" });
     try {
       const response = await fetch(url);
       // console.log(response.json());
@@ -28,12 +29,34 @@ export const AppProvider = ({ children }) => {
   };
 
   const handleSearch = (query) => {
-    dispatch({type: "HANDLE_SEARCH", payload: query})
-  }
+    dispatch({ type: "HANDLE_SEARCH", payload: query });
+  };
+
+
+  const fetchComics = async (url) => {
+    dispatch({ type: "SET_LOADING" });
+    try {
+      const response = await fetch(url);
+      // console.log(response.json());
+      const data = await response.json();
+      dispatch({ type: "SET_COMICS", payload: data });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   useEffect(() => {
     fetchWidget(
-      `${API_ENDPOINT}${state.query && `name=${state.query}`}&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
+      `${API_ENDPOINT}${
+        state.query && `name=${state.query}`
+      }&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
+    );
+
+    fetchComics(
+      `${API_ENDPOINT}${
+        state.query && `name=${state.query}`
+      }&ts=1234&apikey=ab0606db0d69c84420a488364f11fee1&hash=9f5733bebb8bd43ee82a5b7a03129ae7`
     );
   }, [state.query]);
 

@@ -13,6 +13,12 @@ export const reducer = (state, action) => {
         ...state,
         query: action.payload,
       };
+    case "SET_COMICS":
+      return {
+        ...state,
+        loading: false,
+        comics: action.payload.data.results.comics,
+      };
     default:
       throw new Error(`No Results ${action.type} `);
   }
